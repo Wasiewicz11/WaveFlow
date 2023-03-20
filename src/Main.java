@@ -11,22 +11,14 @@ import java.util.regex.Pattern;
 public class Main {
 
     //indicates path to main directory
-    private static String path = null;
-    public static void main(String[] args) {
+    public static String path = null;
+    public static void main(String[] args) throws IOException {
         createDir();
-        new Menu();
-
-        //simple prompt
-        System.out.println("Welcome in WaveFlow, your personal project manager");
-        System.out.println("What are we doing: ");
-
+        System.out.println(path);
+        Menu.start();
     }
 
     private static void createDir() {
-        Scanner scan = new Scanner(System.in);
-
-        //sprawdza czy pik ma folder z danymi
-        //sprawdza czy plik txt istnieje - sprawdza to z path stworzonym w domyslnym folderze?
 
         String username = System.getProperty("user.name");
         StringBuilder sb = new StringBuilder();
@@ -36,7 +28,7 @@ public class Main {
         path = sb.toString();
         File dir = new File(path);
 
-        //checks if file exists
+        //checks if directory exists - if not, creates directory
         if (!dir.exists())
             dir.mkdirs();
 
@@ -46,10 +38,10 @@ public class Main {
             File file = new File(path + "\\data.txt");
             if (!file.exists()){
                 file.createNewFile();
-                System.out.println("ŁOOOOOOO");
+                System.out.println("Data file created");
             }
         }catch (IOException e){
-            System.out.println("pojebalo");
+            System.out.println("error");
         }
     }
 
