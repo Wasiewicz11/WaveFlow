@@ -30,6 +30,7 @@ public class ShowRecords {
             br = new BufferedReader(new FileReader(Main.path + "\\data.txt"));
             Job job;
 
+            //loop for reading lines
             while ((str = br.readLine()) != null){
 
                 //iterate trough readed line

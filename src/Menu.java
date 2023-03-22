@@ -9,6 +9,7 @@ public class Menu {
         int choise = 0;
 
         while (choise != 5){
+
             //simple menu prompt
             System.out.println("Welcome in WaveFlow, your personal project manager");
             System.out.println("What are we doing: ");
@@ -18,6 +19,7 @@ public class Menu {
             System.out.println("4. Edit records");
             System.out.println("5. Exit");
 
+                //catch exception
                 try {
                     choise = scan.nextInt();
                 } catch (InputMismatchException e) {
@@ -25,6 +27,7 @@ public class Menu {
                     break;
                 }
 
+            //Run chosen option
             switch (choise){
                 case 1:
                     ShowRecords.show();

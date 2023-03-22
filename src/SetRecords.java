@@ -63,6 +63,7 @@ public class SetRecords {
             BufferedWriter bw = null;
             StringBuilder job = new StringBuilder();
 
+            //create 'line' of data to save
             job.append(jobs[i].date + "%");
 
             job.append(jobs[i].names + "%");
@@ -73,6 +74,8 @@ public class SetRecords {
 
             job.append(jobs[i].bridePhoneNr + "%!");
 
+            //save data to file
+            //if first line -> don't append to existing file, overwrite it
             if (i == 0) {
                 try {
                     bw = new BufferedWriter(new FileWriter(Main.path + "\\data.txt"));
@@ -86,6 +89,8 @@ public class SetRecords {
                     bw.close();
                 }
             }
+
+            //if any other line -> append to existing line
             else {
                 try {
                     bw = new BufferedWriter(new FileWriter(Main.path + "\\data.txt", true));
